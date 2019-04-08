@@ -2,6 +2,7 @@
     "name": "trint/flarum-s",
     "description": "Asynchronous PHP web servers for Flarum.",
     "type": "library",
+    "minimum-stability": "beta",
     "prefer-stable": true,
     "keywords": ["flarum", "discussion", "php", "swoole", "async", "performance"],
     "homepage": "https://flarum.org/",
