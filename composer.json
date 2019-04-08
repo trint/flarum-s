@@ -30,7 +30,7 @@
     },
     "scripts": {
         "post-package-install": [
-            "php -r \"copy('config/local-example.php', 'config/local.php');\""
+            "php -r \"echo 'test';\""
         ]
     }
 }
