@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Command Service Runner
+ * @author <trint.dev@gmail.com>
+ */
+
+require '../vendor/autoload.php';
+$config = require 'config.php';
+(new Flarum\Console\Command($config))->run();

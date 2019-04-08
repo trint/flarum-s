@@ -1,0 +1,36 @@
+{
+    "name": "trint/flarum-s",
+    "description": "Asynchronous PHP web servers for Flarum.",
+    "type": "library",
+    "prefer-stable": true,
+    "keywords": ["flarum", "discussion", "php", "swoole", "async", "performance"],
+    "homepage": "https://flarum.org/",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/trint/flarum-s/issues",
+        "source": "https://github.com/trint/flarum-s/"
+    },
+    "authors": [
+        {
+            "name": "Trint",
+            "email": "trint.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-swoole": ">=2.1.0"
+    },
+    "require-dev": {
+        "flarum/core": "^0.1.0"
+    },
+    "autoload": {
+      "psr-4": {
+          "Flarum\\": "src/"
+      }
+    },
+    "scripts": {
+        "post-package-install": [
+            "php -r \"copy('config/local-example.php', 'config/local.php');\""
+        ]
+    }
+}
