@@ -29,8 +29,11 @@
       }
     },
     "scripts": {
+        "post-install-cmd": [
+            "php -r \"echo 'post-install-cmd';\""
+        ],
         "post-package-install": [
-            "php -r \"echo 'test';\""
+            "php -r \"echo 'post-package-install';\""
         ]
     }
 }
