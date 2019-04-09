@@ -86,8 +86,8 @@ Swoole         Version:   4.3.1
 Coroutine      Mode:      enabled
 Listen         Addr:      127.0.0.1
 Listen         Port:      9501
-Reactor        Num:       16
-Worker         Num:       16
+Reactor        Num:       4
+Worker         Num:       4
 ```
 
 Open your browser to http://127.0.0.1:9051 to validate you're up and running.
