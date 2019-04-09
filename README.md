@@ -19,25 +19,79 @@
 
 ![screenshot](https://flarum.org/img/screenshot.png)
 
-## Installation
+## Requirements
+
+| Dependency | Requirement |
+| -------- | -------- |
+| [PHP](https://secure.php.net/manual/en/install.php) | `>= 7.2` `Recommend PHP7+` |
+| [Swoole](https://www.swoole.co.uk/) | `>= 2.0.12` `No longer support PHP5 since 2.0.12` `Recommend 4.3+` |
+
+## Installation (Flarum + Swoole)
 
 You must have SSH access to a server with **PHP 7.1+** and **MySQL 5.6+**, and install [Composer](https://getcomposer.org/).
 
+Install Swoole
+```bash
+$ pecl install swoole
 ```
-composer create-project flarum/flarum . --stability=beta
+
+Install Project Flarum-S 
+```
+$ composer create-project flarum/flarum flarum-s --stability=beta
 ```
 
-Read the **[Installation guide](https://flarum.org/docs/install.html)** for more information. For support, refer to the [documentation](https://flarum.org/docs/), and ask questions on the [community forum](https://discuss.flarum.org/) or [Discord chat](https://flarum.org/discord/).
+Install Http Server Swoole for Flarum-S
+```bash
+$ composer require trint/flarum-s:dev-master
+$ composer update -o
+$ cp -rf vendor/trint/flarum-s/bin/ bin/
+$ chmod 755 bin/flarum-s
+```
 
-## Contributing
+Config ip, port
+```
+Change `bin/config.php`: listen_ip, listen_port
+```
 
-Thank you for considering contributing to Flarum! Please read the **[Contributing guide](https://flarum.org/docs/contributing.html)** to learn how you can help.
+Commands Service
 
-This repository only holds the Flarum skeleton application. Most development happens in [flarum/core](https://github.com/flarum/core).
+| Command | Description |
+| --------- | --------- |
+| `start` | Start Http Server Flarum-S  |
+| `stop` | stop |
+| `restart` | restart |
+| `reload` | reload |
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Flarum, please send an e-mail to [security@flarum.org](mailto:security@flarum.org). All security vulnerabilities will be promptly addressed.
+## Usage
+
+```bash
+$ cd bin/
+$ ./flarum-s service start
+```
+
+
+```
+        ___________.__
+        \_   _____/|  | _____ _______ __ __  _____
+         |    __)  |  | \__  \_  __ \  |  \/     \
+         |     \   |  |__/ __ \|  | \/  |  /  Y Y  \
+         \___  /   |____(____  /__|  |____/|__|_|  /
+             \/              \/                  \/
+
+Server         Name:      flarum-httpd
+System         Name:      linux
+PHP            Version:   7.3.3-1+ubuntu18.04.1+deb.sury.org+1
+Swoole         Version:   4.3.1
+Coroutine      Mode:      enabled
+Listen         Addr:      127.0.0.1
+Listen         Port:      9501
+Reactor        Num:       16
+Worker         Num:       16
+```
+
+Open your browser to http://127.0.0.1:9051 to validate you're up and running.
+
 
 ## License
 

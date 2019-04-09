@@ -45,6 +45,9 @@ class Psr7RequestBuilder
             $user = posix_getpwuid(posix_geteuid())['name'];
         }
 
+        $script_name   = '/swoole-httpd';
+        $document_root = '';
+
         return [
             'USER'                           => $user,
             'HTTP_CACHE_CONTROL'             => $header['cache-control'] ?? '',
@@ -65,16 +68,18 @@ class Psr7RequestBuilder
             'GATEWAY_INTERFACE'              => $server['server_software'] ?? '',
             'REQUEST_SCHEME'                 => 'http',
             'SERVER_PROTOCOL'                => $server['server_protocol'] ?? null,
+            'DOCUMENT_ROOT'                  => $document_root,
             'DOCUMENT_URI'                   => '/',
             'REQUEST_URI'                    => $server['request_uri'] ?? '',
-            'SCRIPT_NAME'                    => '/swoole-expressive',
+            'SCRIPT_NAME'                    => $script_name,
             'CONTENT_LENGTH'                 => $header['content-length'] ?? null,
             'CONTENT_TYPE'                   => $header['content-type'] ?? null,
             'REQUEST_METHOD'                 => $server['request_method'] ?? 'GET',
             'QUERY_STRING'                   => $server['query_string'] ?? '',
+            'SCRIPT_FILENAME'                => rtrim($document_root, '/').'/'.ltrim($script_name),
             'PATH_INFO'                      => $server['path_info'] ?? '',
             'FCGI_ROLE'                      => 'RESPONDER',
-            'PHP_SELF'                       => $return['PATH_INFO'],
+            'PHP_SELF'                       => $server['path_info'] ?? '',
             'REQUEST_TIME_FLOAT'             => $server['request_time_float'] ?? '',
             'REQUEST_TIME'                   => $server['request_time'] ?? '',
         ];
