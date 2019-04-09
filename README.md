@@ -28,7 +28,7 @@
 
 ## Installation (Flarum + Swoole)
 
-You must have SSH access to a server with **PHP 7.1+** and **MySQL 5.6+**, and install [Composer](https://getcomposer.org/).
+You must have SSH access to a server with **PHP 7.2+** and **MySQL 5.6+**, and install [Composer](https://getcomposer.org/).
 
 Install Swoole
 ```bash
