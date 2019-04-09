@@ -93,6 +93,50 @@ Worker         Num:       16
 Open your browser to http://127.0.0.1:9051 to validate you're up and running.
 
 
+
+## Benchmark
+
+using 4 CPUs / 1 GB Memory / PHP 7.3 / Ubuntu 18.04.4 x64
+
+Benchmarking Tool: [wrk](https://github.com/wg/wrk)
+
+```
+wrk -t4 -c100 http://your.app
+```
+
+### PHP7.3
+
+```
+$ cd public/
+$ php -S 127.0.0.1:8080
+$ wrk -t2 -c50 -d5s http://localhost:8080
+
+Running 5s test @ http://localhost:8080
+  2 threads and 50 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   377.47ms   46.35ms 462.19ms   93.74%
+    Req/Sec    64.16     12.73   100.00     60.61%
+  639 requests in 5.02s, 8.28MB read
+  Socket errors: connect 0, read 639, write 0, timeout 0
+Requests/sec:    127.25
+Transfer/sec:      1.65MB
+```
+
+### Swoole HTTP Server
+
+```
+wrk -t4 -c10 http://lumen-swoole.local:1215
+
+Running 10s test @ http://lumen-swoole.local:1215
+  4 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.39ms    4.88ms 105.21ms   94.55%
+    Req/Sec     1.26k   197.13     1.85k    68.75%
+  50248 requests in 10.02s, 10.88MB read
+Requests/sec:   5016.94
+Transfer/sec:      1.09MB
+```
+
 ## License
 
 Flarum is open-source software licensed under the [MIT License](https://github.com/flarum/flarum/blob/master/LICENSE).
