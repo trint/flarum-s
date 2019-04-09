@@ -114,12 +114,12 @@ $ wrk -t2 -c50 -d5s http://localhost:8080
 Running 5s test @ http://localhost:8080
   2 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   377.47ms   46.35ms 462.19ms   93.74%
-    Req/Sec    64.16     12.73   100.00     60.61%
-  639 requests in 5.02s, 8.28MB read
-  Socket errors: connect 0, read 639, write 0, timeout 0
-Requests/sec:    127.25
-Transfer/sec:      1.65MB
+    Latency     1.07s   526.15ms   1.91s    56.52%
+    Req/Sec     8.04      4.20    20.00     80.36%
+  62 requests in 5.02s, 326.41KB read
+  Socket errors: connect 0, read 62, write 0, timeout 39
+Requests/sec:     10.35
+Transfer/sec:     65.02KB
 ```
 
 ### Swoole HTTP Server
@@ -128,14 +128,22 @@ Transfer/sec:      1.65MB
 wrk -t2 -c50 -d5s http://localhost:9501
 
 Running 10s test @ http://localhost:9501
-  4 threads and 10 connections
+  2 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     2.39ms    4.88ms 105.21ms   94.55%
-    Req/Sec     1.26k   197.13     1.85k    68.75%
-  50248 requests in 10.02s, 10.88MB read
-Requests/sec:   5016.94
-Transfer/sec:      1.09MB
+    Latency   807.75ms  225.06ms   1.91s    74.43%
+    Req/Sec    27.83     17.37    70.00     51.72%
+  266 requests in 5.11s, 1.81MB read
+  Socket errors: connect 0, read 0, write 0, timeout 4
+  Non-2xx or 3xx responses: 9
+Requests/sec:     52.05
+Transfer/sec:    362.00KB
 ```
+
+Conclustion
+
+4X time
+
+[Code For Fun]
 
 ## License
 
