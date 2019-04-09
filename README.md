@@ -125,9 +125,9 @@ Transfer/sec:      1.65MB
 ### Swoole HTTP Server
 
 ```
-wrk -t4 -c10 http://lumen-swoole.local:1215
+wrk -t2 -c50 -d5s http://localhost:9501
 
-Running 10s test @ http://lumen-swoole.local:1215
+Running 10s test @ http://localhost:9501
   4 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency     2.39ms    4.88ms 105.21ms   94.55%
