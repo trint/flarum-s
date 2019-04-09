@@ -19,25 +19,11 @@
     ],
     "require": {
         "php": "^7.2",
-        "ext-swoole": ">=2.1.0",
-        "slowprog/composer-copy-file": "~0.3"
+        "ext-swoole": ">=2.1.0"
     },
     "autoload": {
       "psr-4": {
           "Flarum\\": "src/"
       }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "SlowProg\\CopyFile\\ScriptHandler::copy"
-        ],
-        "post-update-cmd": [
-            "SlowProg\\CopyFile\\ScriptHandler::copy"
-        ]
-    },
-    "extra": {
-        "copy-file": {
-            "vendor/trint/flarum-s/bin/": "bin/"
-        }
     }
 }
