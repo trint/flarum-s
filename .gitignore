@@ -1,0 +1,10 @@
+/node_modules
+/vendor
+/.idea
+composer.lock
+npm-debug.log
+yarn-error.log
+.DS_Store
+Thumbs.dbg
+.git
+.sonarlint
